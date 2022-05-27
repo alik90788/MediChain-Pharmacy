@@ -1,0 +1,20 @@
+.prod__card{
+    display: flex;
+    flex-direction: row;
+    margin: 50px auto;
+    justify-content: space-evenly;
+}
+.card__group{
+    justify-content: space-between;
+}
+.prod {
+    width: 250px;
+    margin-right: 50px;
+    /* display: flex; */
+}
+.med_link{
+    font-size: 15px;
+}
+.med_link:hover{
+    color: #202A73;
+}
