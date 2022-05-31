@@ -12,14 +12,14 @@ const Production = (props) => {
     console.log(location.state._id);
     const prod_Id = location.state._id;
     const [products, setProducts] = useState([]);
+    async function getData() {
+      const response = await fetch(`${server_url}/productionStocks/getStocksByProduction/${prod_Id}`);
+      const data = await response.json();
+      console.log(data.data,"data");
+      setProducts(data.data)
+    }
     useEffect(() => {
-        getData();
-        async function getData() {
-            const response = await fetch(`${server_url}/productionStocks/getStocksByProduction/${prod_Id}`);
-            const data = await response.json();
-            console.log(data.data,"data");
-            setProducts(data.data)
-        }
+      getData();
     }, []);
     return (
         <div>

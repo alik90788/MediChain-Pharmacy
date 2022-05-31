@@ -1,3 +1,3 @@
-const server_url = "http://192.168.18.143:3001"
+const server_url = "http://localhost:3001"
 
 export default server_url;

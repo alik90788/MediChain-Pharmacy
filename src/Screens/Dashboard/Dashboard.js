@@ -29,13 +29,13 @@ const Dashboard = () => {
     const response = await fetch(`${server_url}/distributorStocks/getMyStocks/${Id}`);
     const data = await response.json();
     console.log(data, "product");
-    setProducts(data)
+    setProducts(data.data)
   }
   async function getOrders() {
     const response = await fetch(`${server_url}/customerOrders/getOrdersByDistributor/${Id}`);
     const data = await response.json();
+    console.log(data, 'data');
     setVendors(data)
-    console.log(data);
   }
   useEffect(() => {
     getData();
@@ -57,25 +57,25 @@ const Dashboard = () => {
         </Container>
         <Container className="row d-flex justify-content-center align-items-center">
           {!products.length}
-          {products.length >= 1 && products.map(({ Unit, Medicine }) => (
+          {products.length >= 0 && products.map(({ units, medicine }) => (
             <Container className="col-lg-3 col-sm-6 is-light-text mb-4">
               <Container className="card grid-card is-card-dark">
                 <Container className="card-heading">
                   <Container style={{ fontSize: 30 }} className="text-light letter-spacing text-large">
-                    {Medicine.Name}
+                    {medicine.Name}
                   </Container>
                   <Container className="text-medium p-3 mt-2 mb-2">
-                    {Medicine.Description}
+                    {medicine.description}
                   </Container>
                 </Container>
 
                 <Container className="card-value pt-4 text-x-medium">
                   {/* <span className="text-large pr-1">$</span> */}
-                  No of Units: {Unit}
+                  No of Units: {units}
                 </Container>
-                <button className='dash-btn' onClick={change}>
+                {/* <button className='dash-btn' onClick={change}>
                             <span>Create Order</span>
-                        </button>
+                        </button> */}
               </Container>
             </Container>
           ))}

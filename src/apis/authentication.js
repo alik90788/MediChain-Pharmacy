@@ -1,7 +1,7 @@
-const url = "http://192.168.18.143:3001";
+const url = "http://localhost:3001";
 
 export const login = (creds) => {
-    return fetch(`${url}/distributors   /login`, {
+    return fetch(`${url}/distributors/login`, {
         method: "POST",
         headers: {
             "content-type": "application/json",
